@@ -1,0 +1,12 @@
+{% extends 'gatetrack/base.html' %}
+
+{% block body_block %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h2>{{ project.name }}</h2>
+            <p>Project Type: <strong><a href="">{{ project.project_type }}</a></strong>, Scope: {{ project.type_of_scope }}</p>
+            <p>{{ project.cluster.name }},<strong> <a href="">Team Lead: {{ project.user.username }}</a></strong></br>Project Commence: {{ project.start_date }}</p>
+            <div class="well well-sm"><p><strong>OBJECTIVE</strong></br>{{ project.project_info }}</p></div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>COE SK OIL GATE TRACKING</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/gatetrack.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet"> 
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1><a href="{% url 'index' %}">COE SK OIL PROJECT MANAGEMENT PORTAL</a></h1>
+                <p>Gate Tracking and Project Information</p>
+            </div>
+            {% block body_block %}
+            {% endblock %}
+        </div>  
+    </body>
+</html>

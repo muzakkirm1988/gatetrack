@@ -1,34 +1,19 @@
-{% load static %}
+{% extends 'gatetrack/base.html' %}
 
-<html>
-    <head>
-        <title>COE SK OIL GATE TRACKING</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/gatetrack.css' %}">
-        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet"> 
-    </head>
-    <body>
-        <div class="container">
-            <div class="jumbotron">
-                <h1>COE SK OIL PROJECT MANAGEMENT PORTAL</h1>
-                <p>Gate Tracking and Project Information</p>
-            </div>
-            {% for cluster in clusters %}
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ cluster.name }}</div>
-                    <div class="panel-body">
-                        {% for manager in cluster.userprofile_set.all %}
-                        <span class="label label-default">{{ manager.user.username }}</span>
-                        {% endfor%}
-                    </div>
-                    <div class="panel-body">
-                        {% for project in cluster.project_set.all %}
-                            <p><a href="/">{{ project.name }}</a></p>
-                        {% endfor %}
-                    </div>  
-            </div>
+{% block body_block %}
+    {% for cluster in clusters %}
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ cluster.name }}</div>
+        <div class="panel-body">
+            {% for manager in cluster.userprofile_set.all %}
+            <span class="label label-default">{{ manager.user.username }}</span>
+            {% endfor%}
+        </div>
+        <div class="panel-body">
+            {% for project in cluster.project_set.all %}
+                <p><a href="{% url 'project' pk=project.pk %}">{{ project.name }}</a></p>
             {% endfor %}
-        </div>       
-    </body>
-</html>
+        </div>  
+    </div>
+    {% endfor %}    
+{% endblock %}

@@ -1,5 +1,7 @@
-.container h1 {
+
+.container h1 a {
     font-family: 'Slabo 27px', serif;
+    color: #028482; 
 }
 
 .container h2 {
